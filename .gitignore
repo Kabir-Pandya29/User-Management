@@ -21,7 +21,7 @@ pnpm-debug.log
 .classpath
 .settings/
 *.sublime-workspace
-*.vscode/
+.vscode/
 
 # Logs
 logs
@@ -37,3 +37,19 @@ lerna-debug.log*
 # Misc
 .DS_Store
 Thumbs.db
+
+# Ignore Visual Studio files
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.plist
+*.tlog
+*.VC.db
+*.VC.VC.opendb
+*.ncb
+*.aps
+*.sdf
+*.sln.docstates
+ipch/

@@ -1,0 +1,6 @@
+@app_backend_HostAddress = http://localhost:5211
+
+GET {{app_backend_HostAddress}}/app-backend
+Accept: application/json
+
+###
