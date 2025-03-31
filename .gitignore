@@ -1,0 +1,39 @@
+# Ignore Angular build outputs
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node dependencies
+/node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE and Editor settings
+.idea/
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.vscode/
+
+# Logs
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Coverage reports
+/coverage
+
+# Misc
+.DS_Store
+Thumbs.db
