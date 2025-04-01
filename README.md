@@ -1,5 +1,33 @@
 # User Management System Documentation
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+- [Frontend Documentation](#frontend-documentation)
+  - [User Component](#user-component)
+  - [HTML Template](#html-template)
+  - [Services](#services)
+    - [User Service](#user-service)
+  - [Global Styles](#global-styles)
+- [Backend Documentation](#backend-documentation)
+  - [Controllers](#controllers)
+    - [UsersController](#userscontroller)
+  - [Models](#models)
+    - [User](#user)
+  - [Services](#services-1)
+    - [UserService](#userservice)
+  - [Repository](#repository)
+- [API Documentation](#api-documentation)
+  - [Endpoints](#endpoints)
+- [Setup Instructions](#setup-instructions)
+  - [Backend Setup](#backend-setup)
+  - [Frontend Setup](#frontend-setup)
+
+---
+
 ## Overview
 
 The User Management System is a web application that allows administrators to manage users. It provides functionality to:
