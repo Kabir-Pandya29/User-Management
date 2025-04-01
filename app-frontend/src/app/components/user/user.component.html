@@ -13,6 +13,8 @@
     </div>
   </div>
 
+  <!-- Table to display user data with sorting and pagination -->
+
   <div class="table-container table-responsive mb-3">
     <table mat-table [dataSource]="dataSource" matSort class="table table-striped">
       <ng-container matColumnDef="name">
@@ -58,6 +60,10 @@
     </mat-card>
   </div>
 
+
+
+  <!-- Add User Dialog -->
+
   <ng-template #addUserDialog>
     <h2 mat-dialog-title>Add User</h2>
     <mat-dialog-content>
@@ -87,6 +93,12 @@
     </mat-dialog-actions>
   </ng-template>
 
+
+
+
+  <!-- Edit User Dialog -->
+
+
   <ng-template #editUserDialog>
     <h2 mat-dialog-title>Edit User</h2>
     <mat-dialog-content>
@@ -115,6 +127,10 @@
       <button mat-button [mat-dialog-close]="newUser" [disabled]="!isValidEmail(newUser.email)">Save</button>
     </mat-dialog-actions>
   </ng-template>
+
+
+
+  <!-- Delete User Confirmation Dialog -->
 
   <ng-template #deleteUserDialog>
     <h2 mat-dialog-title>Delete User</h2>

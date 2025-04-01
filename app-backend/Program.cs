@@ -39,7 +39,7 @@ var app = builder.Build();
 // Use ILoggerFactory to create the logger
 var loggerFactory = app.Services.GetRequiredService<ILoggerFactory>();
 var logger = loggerFactory.CreateLogger<Program>();
-logger.LogInformation("Application starting up...");
+logger.LogInformation("Logger is working...");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

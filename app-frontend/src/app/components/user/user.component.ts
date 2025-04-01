@@ -45,6 +45,8 @@ export class UserComponent implements OnInit {
     };
   }
 
+  // Fetch users from the service and handle errors
+
   ferchUsers(): void {
     this.userService.getUsers().subscribe(
       users => {
@@ -58,6 +60,8 @@ export class UserComponent implements OnInit {
     );
   }
 
+
+  // Open dialog for adding a new user
   openAddUserDialog(): void {
     const dialogRef = this.dialog.open(this.addUserDialog);
 
@@ -71,6 +75,9 @@ export class UserComponent implements OnInit {
     });
   }
 
+
+  // Add a new user and handle errors
+
   addUser(user: User): void {
     this.userService.addUser(user).subscribe(
       () => {
@@ -81,6 +88,8 @@ export class UserComponent implements OnInit {
       }
     );
   }
+
+  // Open dialog for editing an existing user
 
   openEditUserDialog(user: User): void {
     const dialogRef = this.dialog.open(this.editUserDialog);
@@ -96,6 +105,7 @@ export class UserComponent implements OnInit {
     });
   }
 
+  // Update an existing user and handle errors
   updateUser(user: User): void {
     this.userService.updateUser(user).subscribe(
       () => {
@@ -107,6 +117,19 @@ export class UserComponent implements OnInit {
     );
   }
 
+  // Function to delete a user and handle errors
+  deleteUser(user: User): void {
+    this.userService.deleteUser(user.id!).subscribe(
+      () => {
+        this.ferchUsers(); // Refresh the user list after deleting
+      },
+      error => {
+        alert('Failed to delete user. Please try again.');
+      }
+    );
+  }
+
+  // Open dialog for confirming user deletion
   confirmDeleteUser(user: User): void {
     this.userToDelete = user;
     const dialogRef = this.dialog.open(this.deleteUserDialog);
@@ -119,26 +142,20 @@ export class UserComponent implements OnInit {
     });
   }
 
-  deleteUser(user: User): void {
-    this.userService.deleteUser(user.id!).subscribe(
-      () => {
-        this.ferchUsers(); // Refresh the user list after deleting
-      },
-      error => {
-        alert('Failed to delete user. Please try again.');
-      }
-    );
-  }
-
+ 
+  // Function to validate email format using regex
+  // This is a simple regex and may not cover all cases
   isValidEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
 
+  // Function to reset new user fields after adding/editing
   resetNewUser(): void {
     this.newUser = { id: null, name: '', email: '', role: 'User' };
   }
 
+  // Function to handle search input changes
   onSearchChange(): void {
     this.dataSource.filter = this.searchQuery.trim().toLowerCase();
   }
