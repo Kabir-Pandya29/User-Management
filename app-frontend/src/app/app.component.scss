@@ -1,0 +1,42 @@
+@use '../styles.scss' as *;
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--mat-sys-background);
+}
+
+.header {
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.footer {
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem; // Reduce padding for smaller screens
+  }
+}

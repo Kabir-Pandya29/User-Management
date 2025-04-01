@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-export interface User {
-  id: number;
+interface User {
+  id: number | null; // Assuming ID can be null for new users
   name: string;
   email: string;
   role: string;
@@ -11,32 +12,34 @@ export interface User {
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  private users: User[] = [];
-  private usersSubject = new BehaviorSubject<User[]>(this.users);
+export class UserService{
 
-  constructor() {}
+  private apiUrl = 'http://localhost:5211/api/users'; // Replace with your API URL
 
+  constructor(private http: HttpClient) {}
+
+  // Fetch all users
   getUsers(): Observable<User[]> {
-    return this.usersSubject.asObservable();
+    return this.http.get<User[]>(this.apiUrl);
   }
 
-  addUser(user: User): void {
-    user.id = this.users.length + 1;
-    this.users.push(user);
-    this.usersSubject.next(this.users);
+  // Create a new user
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>(this.apiUrl, user);
   }
 
-  editUser(updatedUser: User): void {
-    const index = this.users.findIndex(user => user.id === updatedUser.id);
-    if (index !== -1) {
-      this.users[index] = updatedUser;
-      this.usersSubject.next(this.users);
-    }
+  // Update an existing user
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}`, user);
   }
 
-  deleteUser(userId: number): void {
-    this.users = this.users.filter(user => user.id !== userId);
-    this.usersSubject.next(this.users);
+  // Delete a user by ID
+  deleteUser(userId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${userId}`);
+  }
+
+  // Add a new user
+  addUser(user: User): Observable<void> {
+    return this.http.post<void>(this.apiUrl, user);
   }
 }

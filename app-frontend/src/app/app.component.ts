@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
   standalone: false,
 })
 export class AppComponent {
   title = 'app-frontend';
+  // loading = false;
+
+  // showLoading(): void {
+  //   this.loading = true;
+  // }
+
+  // hideLoading(): void {
+  //   this.loading = false;
+  // }
 }
